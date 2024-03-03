@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: #1d79d5;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 10px;
+  padding-left: 40px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  width: 400px;
+}
+input:focus {
+  outline: none;
+}
+
+.button {
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: grey;
+}
+.iconButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+}

@@ -1,0 +1,8 @@
+.gallery {
+  display: grid;
+  margin-left: 10px;
+  margin-right: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
