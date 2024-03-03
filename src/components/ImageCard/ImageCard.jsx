@@ -1,8 +1,11 @@
 import styles from "./ImageCard.module.css";
 
-function ImageCard({ image }) {
+function ImageCard({ image, onImageClick }) {
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      onClick={() => onImageClick(image.urls.regular)}
+    >
       <img src={image.urls.small} alt={image.alt_description} />
     </div>
   );

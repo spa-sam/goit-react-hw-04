@@ -6,7 +6,8 @@ import { toast } from "react-hot-toast";
 import CustomLoader from "../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 
-function ImageGallery({ searchText }) {
+function ImageGallery({ searchText, onImageClick }) {
+  // добавьте проп onImageClick
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -61,7 +62,8 @@ function ImageGallery({ searchText }) {
       <ul className={styles.gallery}>
         {images.map((image) => (
           <li key={image.id}>
-            <ImageCard image={image} />
+            <ImageCard image={image} onImageClick={onImageClick} />{" "}
+            {/* передайте функцию onImageClick в ImageCard */}
           </li>
         ))}
       </ul>
@@ -70,4 +72,5 @@ function ImageGallery({ searchText }) {
     </div>
   );
 }
+
 export default ImageGallery;
