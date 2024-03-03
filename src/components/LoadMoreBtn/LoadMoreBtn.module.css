@@ -1,0 +1,22 @@
+.buttonLoadMore {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #3f51b5;
+  border-radius: 2px;
+  background-color: #3f51b5;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttonLoadMore:hover,
+.buttonLoadMore:focus {
+  background-color: #303f9f;
+  border-color: #303f9f;
+  color: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+}

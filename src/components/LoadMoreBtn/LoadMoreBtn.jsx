@@ -1,4 +1,4 @@
-import styles from "./LoadMoreBtn.module.css";
+import css from "./LoadMoreBtn.module.css";
 
 function LoadMoreBtn({ onClick, images }) {
   if (!images.length) {
@@ -6,7 +6,7 @@ function LoadMoreBtn({ onClick, images }) {
   }
 
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button className={css.buttonLoadMore} onClick={onClick}>
       Load more
     </button>
   );

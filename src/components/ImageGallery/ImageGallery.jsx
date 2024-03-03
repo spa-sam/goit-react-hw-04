@@ -21,25 +21,34 @@ function ImageGallery({ searchText }) {
   }, [searchText]);
 
   const fetchImages = (query, page) => {
-    axios
-      .get(
-        `https://api.unsplash.com/search/photos?query=${query}&per_page=12&page=${page}`,
-        {
-          headers: {
-            Authorization:
-              "Client-ID it-___ha_onFR-GVhyUV5CTFJrLwJqLYl0WmECjIHzo",
-          },
-        }
-      )
-      .then((response) => {
-        setImages((prevImages) => [...prevImages, ...response.data.results]);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        toast.error("Failed to load images. Please try again.");
-        setIsLoading(false);
-      });
+    setIsLoading(true);
+    setTimeout(() => {
+      axios
+        .get(
+          `https://api.unsplash.com/search/photos?query=${query}&per_page=12&page=${page}`,
+          {
+            headers: {
+              Authorization:
+                "Client-ID it-___ha_onFR-GVhyUV5CTFJrLwJqLYl0WmECjIHzo",
+            },
+          }
+        )
+        .then((response) => {
+          setImages((prevImages) => [...prevImages, ...response.data.results]);
+          setIsLoading(false);
+          setTimeout(() => {
+            window.scrollTo({
+              top: document.documentElement.scrollHeight,
+              behavior: "smooth",
+            });
+          }, 200);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          toast.error("Failed to load images. Please try again.");
+          setIsLoading(false);
+        });
+    }, 2000);
   };
 
   const handleLoadMore = () => {
@@ -57,7 +66,7 @@ function ImageGallery({ searchText }) {
         ))}
       </ul>
       {isLoading && <CustomLoader />}
-      <LoadMoreBtn onClick={handleLoadMore} images={images} />
+      {!isLoading && <LoadMoreBtn onClick={handleLoadMore} images={images} />}
     </div>
   );
 }

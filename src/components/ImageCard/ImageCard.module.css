@@ -1,8 +1,7 @@
 .card {
   margin-left: auto;
   margin-right: auto;
-  /* width: 350px; */
-  height: 200px;
+  height: 180px;
   overflow: hidden;
 }
 
