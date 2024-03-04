@@ -39,7 +39,7 @@ function App() {
         onChange={handleSearchChange}
         searchText={searchText}
       />
-      <ImageGallery searchText={submittedText} onImageClick={openModal} />{" "}
+      <ImageGallery searchText={submittedText} onImageClick={openModal} />
       <ImageModal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
