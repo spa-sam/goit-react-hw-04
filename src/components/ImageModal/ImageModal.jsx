@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
 
-function ImageModal({ isOpen, onRequestClose, image }) {
+function ImageModal({ isOpen, onRequestClose, imageUrl }) {
   return (
     <Modal
       isOpen={isOpen}
@@ -10,7 +10,7 @@ function ImageModal({ isOpen, onRequestClose, image }) {
       overlayClassName={css.modalOverlay}
       className={css.modalContent}
     >
-      <img src={image} alt="" className={css.modalImage} />
+      {imageUrl && <img src={imageUrl} alt="" className={css.modalImage} />}
     </Modal>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import ImageModal from "../ImageModal/ImageModal";
@@ -9,23 +9,23 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleSearchSubmit = (text) => {
+  const handleSearchSubmit = useCallback((text) => {
     setSubmittedText(text);
-  };
+  }, []);
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = useCallback((event) => {
     setSearchText(event.target.value);
-  };
+  }, []);
 
-  const openModal = (image) => {
+  const openModal = useCallback((image) => {
     setIsModalOpen(true);
     setSelectedImage(image);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedImage(null);
-  };
+  }, []);
 
   return (
     <>
@@ -38,7 +38,7 @@ function App() {
       <ImageModal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
-        image={selectedImage}
+        imageUrl={selectedImage}
       />
     </>
   );
