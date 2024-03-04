@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import Modal from "react-modal";
 import SearchBar from "../SearchBar/SearchBar";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import ImageModal from "../ImageModal/ImageModal";
@@ -8,6 +9,10 @@ function App() {
   const [submittedText, setSubmittedText] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
 
   const handleSearchSubmit = useCallback((text) => {
     setSubmittedText(text);
