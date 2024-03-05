@@ -1,15 +1,15 @@
 import css from "./LoadMoreBtn.module.css";
 
-function LoadMoreBtn({ onClick, images }) {
-  if (!images.length) {
+const LoadMoreBtn = ({ onClick, hasMore }) => {
+  if (!hasMore) {
     return null;
   }
 
   return (
     <button className={css.buttonLoadMore} onClick={onClick}>
-      Load more
+      Load More
     </button>
   );
-}
+};
 
 export default LoadMoreBtn;
